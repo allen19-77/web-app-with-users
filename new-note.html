@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="common.js"></script>
+	<script>
+		function saveNote() {
+			if (ta.value.trim() === ''  ) return
+			localStorage.notes_userName = "{}" 
+		}
+	</script>
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Новая заметка</h2>
+
+	<textarea id="ta"></textarea>
+	<button onclick="location.href='notes.html'">Сохранить</button>
+	<button onclick="location.href='notes.html'">Отмена</button>
+</body>
+
+</html>

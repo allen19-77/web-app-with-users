@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="common.js"></script>
+	<script>
+		function logIn() {
+			const login = loginInput.value
+			const pass = passInput.value
+			const users = JSON.parse(localStorage.users)
+			for (let i = 0; i < users.length; i++) {
+				if (login === users[i].login && pass === users[i].password) {
+					localStorage.user = login
+					location.href = '/notes.html'
+					return
+				} 
+			} 
+			informer.hidden = false
+		}
+		function togglePass() {
+			if (passInput.type === 'password') passInput.type = 'text'
+			else passInput.type = 'password'
+		}
+	</script>
+	<title>Document</title>
+
+	<style>
+		label>span {
+			width: 60px;
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+
+	<form action="javascript:">
+		<label><span>Логин:</span> <input type="text" id="loginInput"></label>
+		<div>
+			<label><span>Пароль:</span> <input type="password" id="passInput"></label>
+			<button onclick="togglePass()">👀</button>
+		</div>
+		<button onclick="logIn()">Войти</button>
+	</form>
+	<p id="informer" hidden>Логин или пароль неверен</p>
+
+</body>
+
+
+</html>
