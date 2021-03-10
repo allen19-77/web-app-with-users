@@ -17,14 +17,13 @@
 	</p>
 	<button onclick="logOut()">Выйти</button>
 	<button onclick="location.href='new-note.html' ">Добавить</button>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptas maiores vel unde in maxime nam fugiat
-		voluptatibus corrupti laboriosam. Cum quia, id quam tempore exercitationem eligendi ullam magni reprehenderit.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatibus labore quos, dolor facere natus
-		quiobcaecati illum. Velit pariatur unde ut est a at iusto ab odit quo reprehenderit!
-	</p>
+	<script>
+		const key = 'notes_' + localStorage.user
+		const notes = JSON.parse(localStorage[key])
+		for (let i = 0; i < notes.length; i++) {
+			document.write(`<p>${notes[i]}</p>`)
+		}
+	</script>
 
 </body>
 

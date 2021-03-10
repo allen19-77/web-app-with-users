@@ -8,8 +8,13 @@
 	<script src="common.js"></script>
 	<script>
 		function saveNote() {
-			if (ta.value.trim() === ''  ) return
-			localStorage.notes_userName = "{}" 
+			const note = ta.value.trim()
+			if (note === '') return
+			const key = 'notes_' + localStorage.user
+			const notes = JSON.parse(localStorage[key])
+			notes.push(note)
+			localStorage[key] = JSON.stringify(notes) 
+			location.href='notes.html' 
 		}
 	</script>
 	<title>Document</title>
@@ -19,7 +24,7 @@
 	<h2>Новая заметка</h2>
 
 	<textarea id="ta"></textarea>
-	<button onclick="location.href='notes.html'">Сохранить</button>
+	<button onclick="saveNote()">Сохранить</button>
 	<button onclick="location.href='notes.html'">Отмена</button>
 </body>
 
